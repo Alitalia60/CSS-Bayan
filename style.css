@@ -1,0 +1,117 @@
+* {
+  padding: 0;
+  margin: 0;
+
+}
+
+body {
+  background-color: gray;
+  font-size: 1.2em;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 320px;
+  min-height: 568px;
+  height: fit-content;
+  background-color: lightgrey;
+  border: 2px solid darkblue;
+  margin: 50px auto;
+  padding: 10px;
+}
+
+.meme {
+  display: block;
+  margin: 10px auto;
+  max-height: fit-content;
+}
+
+.wrapper .title {
+  color: blue;
+}
+
+.wrapper:hover .title {
+  color: black;
+}
+
+
+.cell {
+  cursor: pointer;
+  height: fit-content;
+  transition: max-height 0.3s;
+  overflow: hidden;
+}
+
+.active .title {
+  color: black;
+}
+
+.img_wrapper {
+  height: 0px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.meme {
+  object-fit: cover;
+}
+
+.active .img_wrapper {
+  height: 100%;
+}
+
+.cell:hover .control {
+  transform: rotate(45deg);
+}
+
+.cell:hover {
+  transition: height 0.3s;
+}
+
+.cell:hover>.img_wrapper {
+  height: 200px;
+  transition: height 0.3s;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0.5);
+  }
+
+  to {
+
+    transform: scale(1);
+  }
+
+}
+
+:not(.active):hover>.img_wrapper>.meme {
+  animation: grow 0.4s;
+}
+
+
+.line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: fit-content;
+}
+
+.control {
+  width: 1.2em;
+  height: 1.2em;
+  transform: rotate(0);
+  visibility: hidden;
+}
+
+.control svg {
+  object-position: center;
+  object-fit: contain;
+
+}
+
+.wrapper:hover .control {
+  visibility: visible;
+}
